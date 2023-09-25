@@ -149,7 +149,7 @@ body {
 }
 
 #file-input-label {
-  font-size: 1.3em;
+  font-size: 1.2rem;
   padding: 0.34em 1em;
   border: 1px solid black;
   border-radius: 0.4em;
@@ -234,3 +234,41 @@ body {
 .d-none{
   display: none;
 }
+
+
+/* Media Query rule */
+@media only screen and (max-width: 900px){
+  #app{
+    width: 100%;
+    max-width: 700px; 
+  }
+  
+  .form-group{
+    padding: .18em;
+    width: 90%;
+  }
+  
+  .display-tweet ul{
+    padding: .45em 1.36em;
+    max-width: 400px;
+  }
+  
+  .btn{
+    padding: .4em .48em;
+    font-size: .7rem;
+  }
+
+  .form-group input {
+    font-size: 1rem;
+  }
+
+  .form-group__textbox::placeholder,
+  .form-group input::placeholder {
+    font-size: 1rem;
+  }
+
+  #file-input-label {
+    font-size: 1em;
+  }
+}
+
