@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA-TWitter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Searchbar -->
+      <div class="form-group">
+        <input type="text" v-model="searchQuery" placeholder="search tweet" />
+      </div>
+
+      <!-- Display Tweets -->
+      <div class="display-tweet">
+        <h2>Display tweets</h2>
+        <ul>
+          <li v-for="(tweet, index) in filteredTweets" :key="tweet.id">
+            <h4>{{tweet.username}}</h4>
+            <div
+              :class="{'dimmed' : tweet.retweeted}"
+              class="retweet-container"
+            >
+              <p v-html="formatTweetContent(tweet.content)"></p>
+
+              <img :src="tweet.img" v-if="tweet.img" alt="image post" />
+            </div>
+
+            <div class="cta-btn">
+              <button class="btn btn-delete" @click="deleteTweet(tweet.id)">
+                Delete
+              </button>
+              <button class="btn btn-retweet" @click="retweet(tweet)">
+                Retweet
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tweet action -->
+      <div id="tweet-action" class="form-group">
+        <input
+          type="text"
+          v-model="newTweets.username"
+          placeholder="username"
+          class="form-group__input"
+        />
+        <textarea
+          type="text"
+          v-model="newTweets.content"
+          placeholder="Type your tweet here..."
+          wrap="off"
+          cols="20"
+          rows="3"
+          class="form-group__textbox"
+        ></textarea>
+
+        <input
+          type="file"
+          @change="handleImageUpload"
+          accept="image/*"
+          height="60px"
+          width="60px"
+          class="form-group__upload"
+          id="file-input"
+        />
+        <label id="file-input-label" for="file-input">Select File</label>
+
+        <button class="btn" @click="addTweet">Add Tweet</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
