@@ -16,7 +16,7 @@
       <!-- Display Tweets -->
       <div class="display-tweet">
         <h2>Display tweets</h2>
-        <ul>
+        <ul :class="{'d-none': filteredTweets.length === 0}">
           <li v-for="(tweet, index) in filteredTweets" :key="tweet.id">
             <h4>{{tweet.username}}</h4>
             <div
