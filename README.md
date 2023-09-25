@@ -1,3 +1,3 @@
 # MIni-tweet App
 
-### This apps implements a few functionalities of X/Twitter Application built using Vue
+### This app implements a few functionalities of X/Twitter Application built using Vue
